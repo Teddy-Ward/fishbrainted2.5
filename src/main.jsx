@@ -6,8 +6,8 @@ import './index.css'
 import { ThemeSwitcherProvider } from 'react-css-theme-switcher';
 
 const themes = {
-  light: 'light.css',
-  dark: 'dark.css',
+  light: './light.css',
+  dark: './dark.css',
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(
