@@ -32,7 +32,7 @@
 }
 
 body {
-  color: rgb(var(--foreground));
+  color: var(--foreground);
   background: var(--background);
 
     display: flex;
@@ -45,6 +45,7 @@ main {
   margin-bottom: 100px;
   margin-top: 30px;
 }
+
 
 /*Header */
 .header {
