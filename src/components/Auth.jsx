@@ -24,14 +24,14 @@ export default function Auth() {
   }
 
   return (
-    <div className="w-full">
-      <div className="col-6 form-widget">
+    <div className="w-2/5 mx-auto">
+      <div className="form-widget">
         <h1 className="">Supabase + React</h1>
         <p className="description">Sign in</p>
         <form className="form-widget" onSubmit={handleLogin}>
           <div>
             <input
-              className="inputField"
+              className="input w-1/2 text-center"
               type="email"
               placeholder="Your email"
               value={email}
@@ -41,7 +41,7 @@ export default function Auth() {
           </div>
           <div>
             <input
-              className="inputField mt-1"
+              className="input mt-1 w-1/2 text-center"
               type="password"
               placeholder="Your Pass"
               value={password}

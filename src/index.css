@@ -34,10 +34,11 @@
 body {
   color: rgb(var(--foreground));
   background: var(--background);
-    min-height: 100vh;
+
     display: flex;
     flex-direction: column;
   padding: 1rem;
+  margin-top: 60px;
 } 
 main {
   height: auto;
