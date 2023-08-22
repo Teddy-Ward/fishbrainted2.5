@@ -1,0 +1,10 @@
+[data-theme='light'] {
+  --background: rgb(202, 202, 202);
+  --foreground: black;
+  --navbackground: #232427;
+  --shadow: #df8600;
+  --link-color-hover: #110c0c;
+  --link-color: #585a61;
+  --card-shadow: #5873cc;
+  --h1-color:#464952;
+}

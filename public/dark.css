@@ -1,0 +1,8 @@
+[data-theme='dark'] {
+  --background: #4B4E58;
+  --foreground: white;
+  --link-color-hover: white;
+  --link-color: #aaa;
+  --card-shadow: #df8600;
+  --h1-color:#dad8d8;
+}

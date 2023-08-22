@@ -6,13 +6,13 @@ import './index.css'
 import { ThemeSwitcherProvider } from 'react-css-theme-switcher';
 
 const themes = {
-  light: 'light',
-  dark: 'dark',
+  light: 'light.css',
+  dark: 'dark.css',
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeSwitcherProvider defaultTheme='dark' themeMap={themes}>
+    <ThemeSwitcherProvider defaultTheme='light' themeMap={themes}>
           <App />
     </ThemeSwitcherProvider>
 
