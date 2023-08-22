@@ -24,9 +24,9 @@ export default function Auth() {
   }
 
   return (
-    <div className="row flex flex-center">
+    <div className="w-full">
       <div className="col-6 form-widget">
-        <h1 className="header">Supabase + React</h1>
+        <h1 className="">Supabase + React</h1>
         <p className="description">Sign in</p>
         <form className="form-widget" onSubmit={handleLogin}>
           <div>
@@ -41,7 +41,7 @@ export default function Auth() {
           </div>
           <div>
             <input
-              className="inputField"
+              className="inputField mt-1"
               type="password"
               placeholder="Your Pass"
               value={password}
@@ -50,7 +50,7 @@ export default function Auth() {
             />
           </div>
           <div>
-            <button className={'button block'} disabled={loading}>
+            <button className={'button block mx-auto mt-2'} disabled={loading}>
               {loading ? <span>Loading</span> : <span>Login</span>}
             </button>
           </div>

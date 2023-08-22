@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../components/supabaseClient'
 import Auth from '../components/Auth'
 import Account from '../components/Account'
-import ThemeSwitch from '../components/ThemeSwitch'
+
 
 
 export default function Admin() {
@@ -25,7 +25,6 @@ export default function Admin() {
         : 
         <>
         <Account key={session.user.id} session={session} />
-        <ThemeSwitch />
         </>
         }
       </div>

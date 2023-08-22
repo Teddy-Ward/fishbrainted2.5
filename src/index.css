@@ -6,8 +6,8 @@
   /* Your default theme */
   text-align: center;
   overflow-y: auto;
-  
-  
+  --navbackground: #232427;
+  --shadow: #df8600;
 }
 
 [data-theme='light'] {
