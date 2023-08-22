@@ -7,10 +7,22 @@ import EditPost from "./EditPost";
 const CDN = import.meta.env.VITE_SUPABASE_IMAGES_CDN
 
 
-export default function Posts({ session }) {
+export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const [session, setSession] = useState(null)
+    
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
 
   useEffect(() => {
     getPosts();
