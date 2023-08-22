@@ -5,10 +5,6 @@ const ThemeSwitch = () => {
   const { switcher, themes, currentTheme, status } = useThemeSwitcher();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  if (status === 'loading') {
-    return <div>Loading styles...</div>;
-  }
-
   const toggleDarkMode = () => {
     setIsDarkMode(previous => {
       switcher({ theme: previous ? themes.light : themes.dark });
