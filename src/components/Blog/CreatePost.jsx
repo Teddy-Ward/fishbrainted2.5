@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient";
 import Editor from "./Editor";
+import Auth from "../Auth";
 
 
 export default function CreatePost() {
@@ -228,7 +229,7 @@ export default function CreatePost() {
 
 
         ) : (
-          <div>No Access</div> )}
+          <div><Auth /></div> )}
     </>
 
   );
