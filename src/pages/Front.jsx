@@ -1,8 +1,8 @@
-import { supabase } from "./supabaseClient";
+import { supabase } from "../components/supabaseClient";
 import { useState, useEffect } from "react";
-import MainPost from "./MainPost";
-import PannelPost from "./PannelPost";
-import Loading from "./Loading";
+import MainPost from "../components/MainPost";
+import PannelPost from "../components/PannelPost";
+import Loading from "../components/Loading";
 
 export default function Front() {
   const [post, setPost] = useState([""]);

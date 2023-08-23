@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient";
+import Editor from "./Editor";
 
 
 export default function CreatePost() {
@@ -178,7 +179,7 @@ export default function CreatePost() {
           <label htmlFor="content">Content</label>
         </div>
         <div className="col-span-3">
-          <textarea
+          {/* <textarea
             id="content"
             className="input block mx-auto rounded-none"
             type="text"
@@ -186,8 +187,8 @@ export default function CreatePost() {
             rows="20"
             value={content || ""}
             onChange={(e) => setContent(e.target.value)}
-          />
-          {/* <Editor value={content} onChange={setContent} /> */}
+          /> */}
+          <Editor value={content} onChange={setContent} />
         </div>
         <div>
           <label htmlFor="image">Image</label>
