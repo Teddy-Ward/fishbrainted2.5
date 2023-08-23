@@ -26,8 +26,8 @@ export default function Auth() {
   return (
     <div className="w-2/5 mx-auto">
       <div className="form-widget">
-        <h1 className="">Login</h1>
-        <p className="description">Sign in</p>
+        <h1 className="">Sign In</h1>
+        <p className="description"></p>
         <form className="form-widget" onSubmit={handleLogin}>
           <div>
             <input
