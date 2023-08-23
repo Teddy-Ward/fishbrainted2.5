@@ -16,6 +16,19 @@ export default function CreatePost() {
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [session, setSession] = useState(null)
+    
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
+
+
   useEffect(() => {
     getPosts();
   }, []);
@@ -118,96 +131,105 @@ export default function CreatePost() {
   }
 
   return (
-    <div className="card">
-      <div className="grid grid-cols-3 gap-4 w-full text-left">
-        <h2 className="w-full text-center col-span-3">Create new Blog Post</h2>
-        <div>
-          <label htmlFor="category">Category</label>
-        </div>
-        <div className="col-span-1">
-          <select
-            category={category}
-            onChange={listChange}
-            className="input rounded-none"
-          >
-            {categoryList.map((option) => (
-              <option key={option.id} category={option.value}>{option.label}</option>
-            ))}
-          </select>
-        </div>
-        <div></div>
-        <div>
-          <label htmlFor="title">Title</label>
-        </div>
-        <div className="col-span-2">
-          <input
-            id="title"
-            className="input block mx-auto rounded-none"
-            type="text"
-            name="title"
-            value={title || ""}
-            onChange={(e) => slugify(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="tagline">Tagline</label>
-        </div>
-        <div className="col-span-2">
-          <input
-            id="tagline"
-            className="input block mx-auto rounded-none"
-            type="text"
-            name="tagline"
-            value={tagline || ""}
-            onChange={(e) => setTagline(e.target.value)}
-          />
-        </div>{" "}
-        <div>
-          <label htmlFor="date">Date</label>
-        </div>
-        <div className="col-span-1">
-          <input
-            id="date"
-            className="input block mx-auto rounded-none"
-            type="date"
-            name="date"
-            value={date || ""}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-        <div className="col-span-3 text-center">
-          <label htmlFor="content">Content</label>
-        </div>
-        <div className="col-span-3">
-          {/* <textarea
-            id="content"
-            className="input block mx-auto rounded-none"
-            type="text"
-            name="content"
-            rows="20"
-            value={content || ""}
-            onChange={(e) => setContent(e.target.value)}
-          /> */}
-          <Editor value={content} onChange={setContent} />
-        </div>
-        <div>
-          <label htmlFor="image">Image</label>
-        </div>
-        <div className="col-span-2">
-          <input
-            className="input block mx-auto rounded-none"
-            type="file"
-            name="image"
-            accept="image/png, image/jpeg"
-            onChange={(e) => uploadImage(e)}
-          />
-        </div>
-        <button className="button-inverse w-full col-span-3" 
-        onClick={() => createPost()}
-        disabled={loading}>
-        {loading ? "Adding Post" : "Create New Post"}
-        </button>
-      </div>
-    </div>
+    <>
+      {session ? (
+              <div className="card">
+              <div className="grid grid-cols-3 gap-4 w-full text-left">
+                <h2 className="w-full text-center col-span-3">Create new Blog Post</h2>
+                <div>
+                  <label htmlFor="category">Category</label>
+                </div>
+                <div className="col-span-1">
+                  <select
+                    category={category}
+                    onChange={listChange}
+                    className="input rounded-none"
+                  >
+                    {categoryList.map((option) => (
+                      <option key={option.id} category={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <div></div>
+                <div>
+                  <label htmlFor="title">Title</label>
+                </div>
+                <div className="col-span-2">
+                  <input
+                    id="title"
+                    className="input block mx-auto rounded-none"
+                    type="text"
+                    name="title"
+                    value={title || ""}
+                    onChange={(e) => slugify(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="tagline">Tagline</label>
+                </div>
+                <div className="col-span-2">
+                  <input
+                    id="tagline"
+                    className="input block mx-auto rounded-none"
+                    type="text"
+                    name="tagline"
+                    value={tagline || ""}
+                    onChange={(e) => setTagline(e.target.value)}
+                  />
+                </div>{" "}
+                <div>
+                  <label htmlFor="date">Date</label>
+                </div>
+                <div className="col-span-1">
+                  <input
+                    id="date"
+                    className="input block mx-auto rounded-none"
+                    type="date"
+                    name="date"
+                    value={date || ""}
+                    onChange={(e) => setDate(e.target.value)}
+                  />
+                </div>
+                <div className="col-span-3 text-center">
+                  <label htmlFor="content">Content</label>
+                </div>
+                <div className="col-span-3">
+                  {/* <textarea
+                    id="content"
+                    className="input block mx-auto rounded-none"
+                    type="text"
+                    name="content"
+                    rows="20"
+                    value={content || ""}
+                    onChange={(e) => setContent(e.target.value)}
+                  /> */}
+                  <Editor value={content} onChange={setContent} />
+                </div>
+                <div>
+                  <label htmlFor="image">Image</label>
+                </div>
+                <div className="col-span-2">
+                  <input
+                    className="input block mx-auto rounded-none"
+                    type="file"
+                    name="image"
+                    accept="image/png, image/jpeg"
+                    onChange={(e) => uploadImage(e)}
+                  />
+                </div>
+                <button className="button-inverse w-full col-span-3" 
+                onClick={() => createPost()}
+                disabled={loading}>
+                {loading ? "Adding Post" : "Create New Post"}
+                </button>
+              </div>
+            </div>  
+          
+
+
+        ) : (
+          <div>No Access</div> )}
+    </>
+
   );
 }

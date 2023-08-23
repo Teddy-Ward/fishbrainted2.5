@@ -41,10 +41,10 @@ export default function Footer() {
                   <a href="/blog">Blog</a>
                 </li>
                 <li>
-                  <a href="/account">Account</a>
+                  <a href="/blog/createpost">New Post</a>
                 </li>
                 <li>
-                  <a href="/profile">Profile</a>
+                  <a href="/admin">Admin</a>
                 </li>
                 <li>
                   <a href="#" onClick={handleSignOut}>
