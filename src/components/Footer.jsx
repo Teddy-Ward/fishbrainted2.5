@@ -9,7 +9,7 @@ export default function Footer() {
     
     <div className="footer w-full flex mx-auto">
 
-      <div className="mr-auto text-xs pb-2">
+      <div className="mr-auto text-xs pb-2 hover:cursor-default">
       &copy; TEDWARD.NET 2023
       </div>
      
